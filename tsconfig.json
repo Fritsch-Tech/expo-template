@@ -10,7 +10,18 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": "./src",
+    "paths": {
+        "@components/*": ["components/*"],
+        "@constants/*": ["constants/*"],
+        "@hooks/*": ["utils/hooks/*"],
+        "@screens/*": ["screens/*"],
+        "@utils/*": ["utils/*"],
+        "@customTypes/*": ["customTypes/*"],
+        "@assets/*": ["../assets/*"],
+        "@features/*": ["features/*"]
+    }
   },
   "extends": "expo/tsconfig.base",
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]

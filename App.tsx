@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import RootNavigator from '@screens/RootNavigator';
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback, useEffect, useState } from 'react';
+
+SplashScreen.preventAutoHideAsync();
 
 // eslint-disable-next-line @arthurgeron/react-usememo/require-memo
 export default function App() {
+	const [appIsReady, setAppIsReady] = useState(false);
+
+	useEffect(() => {
+		setAppIsReady(true);
+	}, []);
+
+	const onLayoutRootView = useCallback(async () => {
+		if (appIsReady) {
+			await SplashScreen.hideAsync();
+		}
+	}, [appIsReady]);
+
+	if (!appIsReady) {
+		return null;
+	}
+
 	return (
-		<View style={styles.container}>
-			<Text>Open up App.js to start working on your app!</Text>
-			<StatusBar style='auto' />
-		</View>
+		<NavigationContainer onReady={onLayoutRootView}>
+			<RootNavigator />
+		</NavigationContainer>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});

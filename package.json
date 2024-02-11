@@ -1,0 +1,47 @@
+{
+	"name": "expo-template",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"start:dev": "npx expo start --dev-client",
+		"start:prod": "npx expo start --no-dev --minify",
+		"build": "eas build --profile production --platform all --auto-submit",
+		"build:ios": "eas build --profile production --platform ios --auto-submit",
+		"build:android": "eas build --profile production --platform android --auto-submit",
+		"build:preview": "eas build --profile preview --platform android ",
+		"build:dev": "eas build --profile development --platform android",
+		"doctor": "npx expo-doctor",
+		"expo:fix": "npx expo install --check",
+		"update": "eas update --branch production",
+		"update:dev": "eas update --branch development",
+		"update:preview": "eas update --branch preview",
+		"channels": "eas channel:list",
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json}\"",
+		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+		"lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+		"visualize": "react-native-bundle-visualizer --expo true",
+		"ts:check": "tsc"
+	},
+	"dependencies": {
+		"@types/react": "~18.2.45",
+		"expo": "~50.0.6",
+		"expo-status-bar": "~1.11.1",
+		"react": "18.2.0",
+		"react-native": "0.73.4"
+	},
+	"devDependencies": {
+		"@arthurgeron/eslint-plugin-react-usememo": "^2.3.1",
+		"@babel/core": "^7.20.0",
+		"eslint": "^8.56.0",
+		"eslint-config-universe": "^12.0.0",
+		"eslint-plugin-react-native-a11y": "^3.3.0",
+		"pre-commit": "^1.2.2",
+		"prettier": "^3.2.5",
+		"typescript": "^5.2.2"
+	},
+	"private": true,
+	"pre-commit": [
+        "lint",
+        "ts:check"
+    ]
+}

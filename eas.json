@@ -1,0 +1,44 @@
+{
+    "cli": {
+        "version": ">= 3.4.1",
+        "appVersionSource": "local",
+        "promptToConfigurePushNotifications": false
+    },
+    "build": {
+        "development": {
+            "channel": "development",
+            "developmentClient": true,
+            "distribution": "internal",
+            "env": {
+                "APP_VARIANT": "development"
+            },
+            "ios": {
+                "resourceClass": "m-medium"
+            }
+        },
+        "preview": {
+            "channel": "preview",
+            "developmentClient": false,
+            "distribution": "internal",
+            "env": {
+                "APP_VARIANT": "preview"
+            },
+            "ios": {
+                "resourceClass": "m-medium"
+            },
+            "android": {
+                "buildType": "apk"
+            }
+        },
+        "production": {
+            "channel": "production",
+            "distribution": "store",
+            "env": {
+                "APP_VARIANT": "production"
+            },
+            "ios": {
+                "resourceClass": "m-medium"
+            }
+        }
+    }
+}

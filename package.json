@@ -46,6 +46,10 @@
 		"typescript": "^5.2.2"
 	},
 	"private": true,
+	"engines": {
+        "npm": "please-use-yarn",
+        "yarn": ">= 1.19.1"
+    },
 	"pre-commit": [
 		"lint",
 		"ts:check"
